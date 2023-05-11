@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha de Personagem - D&D 5e</title>
+  <style>
+    body {
+
+      font-family: "Arial", sans-serif;
+      font-size: 23px;
+      border-style: 5px;
+      line-height: 3.5;
+      background-color: #f5f5f5;
+      margin-right: 10%;
+      margin-left: 10%;
+      padding: 1px;
+      border-radius: 5px;
+      column-rule-width: 500px;
+      padding: 30px
+      
+    }
+
+    /* seções */
+    .section {
+      font-weight: bold;
+      font-size: 20px;
+      background-color: #FF0000;
+      color: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    /* tabela */
+    table {
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      width: 100%;
+      height: 50%;
+    }
+    td {
+      border: 3px solid black;
+    }
+
+    table th, table td {
+      border: 3px solid black ;
+      padding: 5px;
+      text-align: center;
+      vertical-align: middle;
+
+    }
+
+    table th {
+      background-color: #FF0000;
+      color: #fff;
+      font-weight: normal;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 5px;
+      border: 3px solid black ;
+    }
+
+    /* botão de enviar */
+    input[type="submit"] {
+      background-color: #c7b299;
+      color: #fff;
+      cursor: pointer;
+    } 
+
+    input[type="submit"]: hover {
+      background-color: ##FF0000;
+    }
+
+    /* inputs */
+    input[type="text"], input[type="number"], textarea {
+      border: none;
+      background-color: #f5f5f5;
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      color: #000;
+    }
+
+    input[type="text"]:disabled, input[type="number"]:disabled {
+      background-color: #ccc;
+    }
+
+    /* estilo para o input de nome */
+    input[name="nome"] {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* estilo para o input de classe e raça */
+    input[name="classe"], input[name="raca"] {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* estilo para o input de atributos */
+    input[name^="atributo"] {
+      width: 50px;
+    }
+
+    /* estilo para o input de bônus */
+    input[name^="bonus"] {
+      width: 70px;
+    }
+
+    /* estilo para o input de total */
+    input[name^="total"] {
+      width: 100px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<table>
+<form>
+  <!-- informações do personagem -->
+  <div class="section  ">Informações do Personagem</div>
+  <input type="text" name="nome" value="" placeholder="Nome do Personagem">
+  <input type="text" name="classe" value="" placeholder="Classe">
+  <input type="text" name="raca" value="" placeholder="Raça">
+  <!-- atributos -->
+  <div class="section">Atributos</div>
+  <table>   
+    <thead>
+      <tr>
+        <th>Atributo</th>
+        <th>Valor</th>
+        <th>Bônus</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Força</td>
+        <td><input type="number" name="atributo-forca" value=""></td>
+        <td><input type="number" name="bonus-forca" value=""></td>
+        <td><input type="number" name="total-forca" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Destreza</td>
+        <td><input type="number" name="atributo-destreza" value=""></td>
+        <td><input type="number" name="bonus-destreza" value=""></td>
+        <td><input type="number" name="total-destreza" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Constituição</td>
+        <td><input type="number" name="atributo-constituicao" value=""></td>
+        <td><input type="number" name="bonus-constituicao" value=""></td>
+        <td><input type="number" name="total-constituicao" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Inteligência</td>
+        <td><input type="number" name="atributo-inteligencia" value=""></td>
+        <td><input type="number" name="bonus-inteligencia" value=""></td>
+        <td><input type="number" name="total-inteligencia" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Sabedoria</td>
+        <td><input type="number" name="atributo-sabedoria" value=""></td>
+        <td><input type="number" name="bonus-sabedoria" value=""></td>
+        <td><input type="number" name="total-sabedoria" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Carisma</td>
+        <td><input type="number" name="atributo-carisma" value=""></td>
+        <td><input type="number" name="bonus-carisma" value=""></td>
+        <td><input type="number" name="total-carisma" value="" disabled></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- habilidades -->
+  <div class="section">Habilidades</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Habilidade</th>
+        <th>Atributo</th>
+        <th>Bônus</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Acrobacia (Des)</td>
+        <td><input type="number" name="habilidade-acrobacia-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-acrobacia-bonus" value=""></td>
+        <td><input type="number" name="habilidade-acrobacia-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Arcanismo (Int)</td>
+        <td><input type="number" name="habilidade-arcanismo-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-arcanismo-bonus" value=""></td>
+        <td><input type="number" name="habilidade-arcanismo-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Atletismo (For)</td>
+        <td><input type="number" name="habilidade-atletismo-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-atletismo-bonus" value=""></td>
+        <td><input type="number" name="habilidade-atletismo-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Blefar (Car)</td>
+        <td><input type="number" name="habilidade-blefar-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-blefar-bonus" value=""></td>
+        <td><input type="number" name="habilidade-blefar-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Furtividade (Des)</td>
+        <td><input type="number" name="habilidade-furtividade-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-furtividade-bonus" value=""></td>
+        <td><input type="number" name="habilidade-furtividade-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Historia (Int)</td>
+        <td><input type="number" name="habilidade-historia-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-historia-bonus" value=""></td>
+        <td><input type="number" name="habilidade-historia-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Intimidação (Car)</td>
+        <td><input type="number" name="habilidade-intimidacao-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-intimidacao-bonus" value=""></td>
+        <td><input type="number" name="habilidade-intimidacao-total" value="" disabled></td>
+      </tr>
+     
+      <tr>
+        <td>Intuição (Sab)</td>
+        <td><input type="number" name="habilidade-intuicao-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-intuicao-bonus" value=""></td>
+        <td><input type="number" name="habilidade-intuicao-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Investigação (Int)</td>
+        <td><input type="number" name="habilidade-investigacao-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-investigacao-bonus" value=""></td>
+        <td><input type="number" name="habilidade-investigacao-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Medicina (Sab)</td>
+        <td><input type="number" name="habilidade-medicina-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-medicina-bonus" value=""></td>
+        <td><input type="number" name="habilidade-medicina-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Natureza (Int)</td>
+        <td><input type="number" name="habilidade-natureza-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-natureza-bonus" value=""></td>
+        <td><input type="number" name="habilidade-natureza-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Percepção (Sab)</td>
+        <td><input type="number" name="habilidade-percepcao-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-percepcao-bonus" value=""></td>
+        <td><input type="number" name="habilidade-percepcao-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Persuasão (Car)</td>
+        <td><input type="number" name="habilidade-persuasao-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-persuasao-bonus" value=""></td>
+        <td><input type="number" name="habilidade-persuasao-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Religião (Int)</td>
+        <td><input type="number" name="habilidade-religiao-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-religiao-bonus" value=""></td>
+        <td><input type="number" name="habilidade-religiao-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Sobrevivência (Sab)</td>
+        <td><input type="number" name="habilidade-sobrevivencia-atributo" value="" disabled></td>
+        <td><input type="number" name="habilidade-sobrevivencia-bonus" value=""></td>
+        <td><input type="number" name="habilidade-sobrevivencia-total" value="" disabled></td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+<!-- Habilidades de combate -->
+<div>
+  <h3>Habilidades de Combate</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Bônus de Proficiência</th>
+        <th>Atributo</th>
+        <th>Bônus de Magia</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>C.A. (Classe de Armadura)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="number" name="habilidade-ca-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Iniciativa</td>
+        <td></td>
+        <td>Destreza</td>
+        <td></td>
+        <td><input type="number" name="habilidade-iniciativa-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Deslocamento</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="number" name="habilidade-deslocamento-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Ataque Corpo a Corpo</td>
+        <td></td>
+        <td>Força ou Destreza</td>
+        <td></td>
+        <td><input type="number" name="habilidade-ataque-corpo-a-corpo-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Ataque à Distância</td>
+        <td></td>
+        <td>Destreza</td>
+        <td></td>
+        <td><input type="number" name="habilidade-ataque-a-distancia-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Teste de Resistência (For)</td>
+        <td></td>
+        <td>Força</td>
+        <td></td>
+        <td><input type="number" name="habilidade-teste-resistencia-forca-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Teste de Resistência (Des)</td>
+        <td></td>
+        <td>Destreza</td>
+        <td></td>
+        <td><input type="number" name="habilidade-teste-resistencia-destreza-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Teste de Resistência (Con)</td>
+        <td></td>
+        <td>Constituição</td>
+        <td></td>
+        <td><input type="number" name="habilidade-teste-resistencia-constituicao-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Teste de Resistência (Int)</td>
+        <td></td>
+        <td>Inteligência</td>
+        <td></td>
+        <td><input type="number" name="habilidade-teste-resistencia-inteligencia-total" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Teste de Resistenência (Sab)</td>
+        <td></td>
+        <td>Sabedoria</td>
+        <td></td>
+        <td><input type="number" name="habilidade-teste-resistencia-sabedoria-total" value="" disabled></td>
+        </tr>
+        <tr>
+        <td>Teste de Resistência (Car)</td>
+        <td></td>
+        <td>Carisma</td>
+        <td></td>
+        <td><input type="number" name="habilidade-teste-resistencia-carisma-total" value="" disabled></td>
+        </tr>
+        </tbody>  </table>
+    </div>
+    <!-- Habilidades de Classe -->
+    <div>
+      <h3>Habilidades de Classe</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Bônus de Proficiência</th>
+            <th>Atributo</th>
+            <th>Bônus de Magia</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Acrobacias</td>
+            <td></td>
+            <td>Destreza</td>
+            <td></td>
+            <td><input type="number" name="habilidade-acrobacias-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Arcanismo</td>
+            <td></td>
+            <td>Inteligência</td>
+            <td></td>
+            <td><input type="number" name="habilidade-arcanismo-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Arcos</td>
+            <td></td>
+            <td>Destreza</td>
+            <td></td>
+            <td><input type="number" name="habilidade-arcoes-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Athletics</td>
+            <td></td>
+            <td>Força</td>
+            <td></td>
+            <td><input type="number" name="habilidade-athletics-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Blefar</td>
+            <td></td>
+            <td>Carisma</td>
+            <td></td>
+            <td><input type="number" name="habilidade-blefar-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Cavalgar</td>
+            <td></td>
+            <td>Destreza</td>
+            <td></td>
+            <td><input type="number" name="habilidade-cavalgar-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Enganação</td>
+            <td></td>
+            <td>Carisma</td>
+            <td></td>
+            <td><input type="number" name="habilidade-enganação-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Furtividade</td>
+            <td></td>
+            <td>Destreza</td>
+            <td></td>
+            <td><input type="number" name="habilidade-furtividade-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>História</td>
+            
+    <td></td>
+            <td>Inteligência</td>
+            <td></td>
+            <td><input type="number" name="habilidade-historia-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Intimidação</td>
+            <td></td>
+            <td>Carisma</td>
+            <td></td>
+            <td><input type="number" name="habilidade-intimidacao-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Intuição</td>
+            <td></td>
+            <td>Sabedoria</td>
+            <td></td>
+            <td><input type="number" name="habilidade-intuicao-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Investigação</td>
+            <td></td>
+            <td>Inteligência</td>
+            <td></td>
+            <td><input type="number" name="habilidade-investigacao-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Medicina</td>
+            <td></td>
+            <td>Sabedoria</td>
+            <td></td>
+            <td><input type="number" name="habilidade-medicina-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Natureza</td>
+            <td></td>
+            <td>Inteligência</td>
+            <td></td>
+            <td><input type="number" name="habilidade-natureza-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Percepção</td>
+            <td></td>
+            <td>Sabedoria</td>
+            <td></td>
+            <td><input type="number" name="habilidade-percepcao-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Persuasão</td>
+            <td></td>
+            <td>Carisma</td>
+            <td></td>
+            <td><input type="number" name="habilidade-persuasao-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Religião</td>
+            <td></td>
+            <td>Inteligência</td>
+            <td></td>
+            <td><input type="number" name="habilidade-religiao-total" value="" disabled></td>
+          </tr>
+          <tr>
+            <td>Sobrevivência</td>
+            <td></td>
+            <td>Sabedoria</td>
+            <td></td>
+            <td><input type="number" name="habilidade-sobrevivencia-total" value="" disabled></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Equipamentos -->
+    <div>
+      <h3>Equipamentos</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantidade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="equipamento-1-nome" value=""></td>
+            <td><input type="number" name="equipamento-1-quantidade" value=""></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="equipamento-2-nome" value=""></td>
+            <td><input type="number" name="equipamento-2-quantidade" value=""></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="equipamento-3-nome" value=""></td>
+            <td><input type="number" name="equipamento-3-quantidade" value=""></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="equipamento-4-nome" value=""></td>
+            <td><input type="number" name="equipamento-4-quantidade" value=""></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="equipamento-5-nome" value=""></td>
+            <td><input type="number" name="equipamento-5-quantidade" value=""></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+        <!-- Observações -->
+        <div>
+          <h3>Observações</h3>
+          <textarea name="observacoes"></textarea>
+        </div>
+        <!-- Botão de enviar -->
+        <div>
+          <input type="submit" value="Salvar Ficha">
+        </div>
+      </form>
+        </form>
+        </body>
+        </html>
+        
+        
+        
+        
+        

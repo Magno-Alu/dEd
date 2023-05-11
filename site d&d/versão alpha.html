@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha de Personagem</title>
+  <style>
+    /* estilo para melhorar a aparência da ficha */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid black;
+    }
+    th {
+      background-color: #ddd;
+    }
+    .section {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ficha de Personagem</h1>
+
+  <!-- informações básicas do personagem -->
+  <div class="section">Informações do Personagem</div>
+  <table>
+    <tr>
+      <th>Nome</th>
+      <td><input type="text" name="nome" value=""></td>
+      <th>Classe</th>
+      <td><input type="text" name="classe" value=""></td>
+      <th>Nível</th>
+      <td><input type="number" name="nivel" value=""></td>
+    </tr>
+    <tr>
+      <th>Jogador(a)</th>
+      <td><input type="text" name="jogador" value=""></td>
+      <th>Antecedente</th>
+      <td><input type="text" name="antecedente" value=""></td>
+      <th>Raça</th>
+      <td><input type="text" name="raca" value=""></td>
+    </tr>
+    <tr>
+      <th>Alinhamento</th>
+      <td><input type="text" name="alinhamento" value=""></td>
+      <th>XP</th>
+      <td><input type="number" name="xp" value=""></td>
+      <th>Idiomas</th>
+      <td><input type="text" name="idiomas" value=""></td>
+    </tr>
+  </table>
+
+  <!-- atributos do personagem -->
+  <div class="section">Atributos</div>
+  <table>
+    <tr>
+      <th>Atributo</th>
+      <th>Valor</th>
+      <th>Modificador</th>
+    </tr>
+    <tr>
+      <td>Força</td>
+      <td><input type="number" name="forca" value=""></td>
+      <td><input type="text" name="mod_forca" value="" disabled></td>
+    </tr>
+    <tr>
+      <td>Destreza</td>
+      <td><input type="number" name="destreza" value=""></td>
+      <td><input type="text" name="mod_destreza" value="" disabled></td>
+    </tr>
+    <tr>
+      <td>Constituição</td>
+      <td><input type="number
+        name="constituicao" value=""></td>
+        <td><input type="text" name="mod_constituicao" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Inteligência</td>
+        <td><input type="number" name="inteligencia" value=""></td>
+        <td><input type="text" name="mod_inteligencia" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Sabedoria</td>
+        <td><input type="number" name="sabedoria" value=""></td>
+        <td><input type="text" name="mod_sabedoria" value="" disabled></td>
+      </tr>
+      <tr>
+        <td>Carisma</td>
+        <td><input type="number" name="carisma" value=""></td>
+        <td><input type="text" name="mod_carisma" value="" disabled></td>
+      </tr>
+    </table>
+  
+    <!-- pontos de vida e armadura -->
+    <div class="section">Pontos de Vida e Armadura</div>
+    <table>
+      <tr>
+        <th>Classe de Armadura</th>
+        <td><input type="number" name="ca" value=""></td>
+      </tr>  
+      <tr>
+        <th>Pontos de Vida Máximos</th>
+        <td><input type="number" name="pv_max" value=""></td>
+      </tr>
+        <th>Dado de Vida</th>
+        <td><input type="text" name="dado_vida" value=""></td>
+      </tr>
+      <tr>
+        <th>Bônus de Proficiência</th>
+        <td><input type="number" name="bonus_proficiencia" value=""></td>
+      </tr>  
+        <th>Pontos de Vida Atuais</th>
+        <td><input type="number" name="pv_atual" value=""></td>
+      <tr>  
+        <th>Pontos de Vida Temporários</th>
+        <td><input type="number" name="pv_temp" value=""></td>
+      </tr>
+    </table>
+  
+    <!-- perícias -->
+    <div class="section">Perícias</div>
+    <table>
+      <tr>
+        <th>Perícia</th>
+        <th>Atributo</th>
+        <th>Bônus de Proficiência</th>
+        <th>Bônus Mágico</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td><input type="text" name="pericia1" value=""></td>
+        <td><input type="text" name="atributo1" value=""></td>
+        <td><input type="number" name="bonus_proficiencia1" value=""></td>
+        <td><input type="number" name="bonus_magico1" value=""></td>
+        <td><input type="text" name="total1" value="" disabled></td>
+      </tr>
+
+        
+          </table>
+          <!-- equipamentos -->
+          <div class="section">Equipamentos</div>
+          <table>
+            <tr>
+              <th>Item</th>
+              <th>Peso</th>
+              <th>Quantidade</th>
+            </tr>
+            <tr>
+              <td><input type="text" name="item1" value=""></td>
+              <td><input type="number" name="peso1" value=""></td>
+              <td><input type="number" name="quantidade1" value=""></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="item2" value=""></td>
+              <td><input type="number" name="peso2" value=""></td>
+              <td><input type="number" name="quantidade2" value=""></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="item3" value=""></td>
+              <td><input type="number" name="peso3" value=""></td>
+              <td><input type="number" name="quantidade3" value=""></td>
+            </tr>
+            <!-- adicionar mais linhas para mais equipamentos -->
+          </table>
+          <!-- informações adicionais -->
+          <div class="section">Informações Adicionais</div>
+          <textarea name="info_adicionais" rows="5" cols="60"></textarea>
+          <!-- botão de enviar -->
+          <input type="submit" value="Enviar">
+        </form>
+        </body>
+        </html>  
